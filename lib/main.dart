@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:libaries_manager/src/app.dart';
+import 'package:libary_management/src/app.dart';
 
 void main(){
   runApp(const LibaryManagementApp());
