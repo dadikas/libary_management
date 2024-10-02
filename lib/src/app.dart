@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:libary_management/src/features/auth/presentation/pages/login_page.dart';
 
 class LibaryManagementApp extends StatelessWidget{
-  const LibaryManagementApp({Key? key}) : super(key: key);
+  const LibaryManagementApp({super.key});
   @override
   Widget build(BuildContext context) {
     return const LoginPage();
