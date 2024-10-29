@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 class AppTheme{
     static final lightTheme = lightGreenMode;
+    static final darkTheme = darkGreenMode;
 }
 ThemeData lightGreenMode = ThemeData(
     brightness: Brightness.light,
