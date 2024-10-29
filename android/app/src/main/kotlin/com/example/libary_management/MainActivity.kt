@@ -1,4 +1,4 @@
-package com.example.libaries_manager
+package com.example.libary_management
 
 import io.flutter.embedding.android.FlutterActivity
 
