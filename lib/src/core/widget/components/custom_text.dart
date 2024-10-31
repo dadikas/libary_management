@@ -9,6 +9,8 @@ class CustomText extends StatelessWidget {
   final double fontSize;
   final bool isOverFlow;
   final Color? textColor;
+  final bool softWrap;
+  final int maxLines;
   const CustomText(
     {
       super.key,
@@ -18,7 +20,9 @@ class CustomText extends StatelessWidget {
       this.isCenter = false,
       this.fontSize = TextUtil.textSize,
       this.isOverFlow = false,
+      this.softWrap = true,
       this.textColor,
+      this.maxLines = 1
     }
   );
 
@@ -26,7 +30,7 @@ class CustomText extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       text,
-      overflow: isOverFlow ? TextOverflow.ellipsis : null,
+      overflow: isOverFlow ? TextOverflow.visible : null,
       style: TextStyle(
         fontWeight: isBold ? FontWeight.bold : FontWeight.normal,
         fontSize: fontSize,
@@ -34,6 +38,8 @@ class CustomText extends StatelessWidget {
         color: textColor ?? Theme.of(context).colorScheme.onPrimary
       ),
       textAlign: isCenter ? TextAlign.center : TextAlign.left,
+      softWrap: softWrap,
+      maxLines: maxLines,
     );
   }
 }
