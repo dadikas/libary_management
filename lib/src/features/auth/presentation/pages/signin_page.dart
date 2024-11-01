@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:libary_management/src/core/widget/components/custom_text.dart';
+import 'package:libary_management/src/core/widget/components/custom_textfield.dart';
 
 class SigninPage extends StatefulWidget {
   const SigninPage({super.key});
@@ -55,6 +56,7 @@ class _SigninPageState extends State<SigninPage> {
                             "Welcome to the library, the place where you can find your favorite books.",
                         maxLines: 3,
                         isOverFlow: true,
+                        textColor: Colors.grey,
                       ),
                     )
                   ],
@@ -94,7 +96,16 @@ class _SigninPageState extends State<SigninPage> {
               showLogin = true;
             });
           },
-          child: const CustomText(text: "Next"),
+          style: ElevatedButton.styleFrom(
+            elevation: 0,
+          ),
+          child: const Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              CustomText(text: "continue"),
+              Icon(Icons.arrow_forward),
+            ],
+          ),
         ),
       ),
     );
@@ -113,25 +124,34 @@ class LoginForm extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           SizedBox(height: MediaQuery.of(context).size.height * 0.1),
-          const CustomText(text: "Login", isBold: true, fontSize: 22),
-          const SizedBox(height: 20),
-          const TextField(
-            decoration: InputDecoration(
-              hintText: "Email",
-              labelText: "Email",
-              border: OutlineInputBorder(),
-            ),
+          Row(
+            children: [
+              Container(
+                decoration: BoxDecoration(
+                  border: Border(
+                    bottom: BorderSide(
+                        width: 1.5, color: Theme.of(context).colorScheme.primary), // Custom underline
+                  ),
+                ),
+                child: CustomText(
+                  text: "Sign",
+                  isBold: true,
+                  fontSize: MediaQuery.of(context).size.width * 0.1,
+                ),
+              ),
+              CustomText(
+                text: " In",
+                isBold: true,
+                fontSize: MediaQuery.of(context).size.width * 0.1,
+              ),
+            ],
           ),
           const SizedBox(height: 20),
-          const TextField(
-            decoration: InputDecoration(
-              hintText: "Password",
-              labelText: "Password",
-              border: OutlineInputBorder(),
-            ),
-          ),
+          const CustomTextfield(title: "Email", hintText: "Email"),
           const SizedBox(height: 20),
-           Align(
+          const CustomTextfield(title: "Password", hintText: "Password", icon: Icons.lock, type: "Password", isObscureText: true,),
+          const SizedBox(height: 20),
+          Align(
             alignment: Alignment.centerRight,
             child: SizedBox(
               child: ElevatedButton(

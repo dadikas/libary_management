@@ -11,9 +11,9 @@ class CustomText extends StatelessWidget {
   final Color? textColor;
   final bool softWrap;
   final int maxLines;
+  final bool isUnderline;
   const CustomText(
-    {
-      super.key,
+      {super.key,
       required this.text,
       this.isBold = false,
       this.isItalic = false,
@@ -22,9 +22,8 @@ class CustomText extends StatelessWidget {
       this.isOverFlow = false,
       this.softWrap = true,
       this.textColor,
-      this.maxLines = 1
-    }
-  );
+      this.maxLines = 1,
+      this.isUnderline = false});
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +34,7 @@ class CustomText extends StatelessWidget {
         fontWeight: isBold ? FontWeight.bold : FontWeight.normal,
         fontSize: fontSize,
         fontStyle: isItalic ? FontStyle.italic : FontStyle.normal,
-        color: textColor ?? Theme.of(context).colorScheme.onPrimary
+        color: textColor ?? Theme.of(context).colorScheme.onPrimary,
       ),
       textAlign: isCenter ? TextAlign.center : TextAlign.left,
       softWrap: softWrap,
