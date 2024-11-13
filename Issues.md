@@ -22,7 +22,7 @@ In the following example, `ConstrainedBox` is used to restrict `Text` within a d
                 child: Text(
                     'This is a very long text string that could overflow the screen if not constrained.',
                 style: TextStyle(fontSize: 16),
-                maxLines: 3, // This is the line of code that allows the text to be displayed with maxlines
+                maxLines: 3, 
                 overflow: TextOverflow.ellipsis,
             ),
         ),
