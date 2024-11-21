@@ -33,7 +33,7 @@ class _SigninPageState extends State<SigninPage> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Image(image: AssetImage('assets/background.png')),
+          
           AnimatedOpacity(
               opacity: showLogin ? 0.0 : 1.0,
               duration: const Duration(milliseconds: 500),
