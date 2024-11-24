@@ -81,8 +81,8 @@ flutter:
   fonts:
     - family: Lora
       fonts:
-        - asset: assets/fonts/Lora/Lora-VariableFont_wght.ttf
-        - asset: assets/fonts/Lora/Lora-Italic-VariableFont_wght.ttf
+        - asset: assets/fonts/Lora-VariableFont_wght.ttf
+        - asset: assets/fonts/Lora-Italic-VariableFont_wght.ttf
         
           style: italic
   # - family: Trajan Pro

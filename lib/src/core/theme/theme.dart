@@ -8,7 +8,7 @@ class AppTheme{
 ThemeData lightGreenMode = ThemeData(
     brightness: Brightness.light,
     colorScheme: const ColorScheme.light(
-        surface: Color.fromRGBO(238,238, 238, 1),
+        surface: Colors.white,
         primary: Color.fromRGBO(0, 0, 0, 1),
         secondary: Color.fromRGBO(79,140,132, 1),
         onSurface: Colors.white,
