@@ -42,6 +42,48 @@ class _SigninPageState extends State<SigninPage> {
               ],
             ),
           ),
+          Padding(
+            padding: EdgeInsets.all(MediaQuery.of(context).size.width * 0.05),
+            child: TextButton(
+                onPressed: () {},
+                child: const CustomText(
+                  text: 'Forgot Password?',
+                  fontSize: TextUtil.textSize,
+                  isBold: true,
+                )),
+          ),
+          Padding(
+            padding: EdgeInsets.all(MediaQuery.of(context).size.width * 0.05),
+            child: ElevatedButton(
+              onPressed: () {},
+              style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.black,
+                  minimumSize: Size(MediaQuery.of(context).size.width, 50)),
+              child: const CustomText(
+                text: 'Sign In',
+                fontSize: TextUtil.textSize,
+                isBold: true,
+                textColor: Colors.white,
+              ),
+              
+            ),
+          ),
+          Padding(
+            padding: EdgeInsets.all(MediaQuery.of(context).size.width * 0.05),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const CustomText(text: 'Don\'t have an account? '),
+                TextButton(
+                    onPressed: () {},
+                    child: const CustomText(
+                      text: 'Sign Up',
+                      fontSize: TextUtil.textSize,
+                      isBold: true,
+                    ))
+              ],
+            ),
+          )
         ],
       ),
     );
