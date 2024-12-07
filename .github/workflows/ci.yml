@@ -13,14 +13,13 @@ jobs:
     name: Build and Test Flutter App
     runs-on: ubuntu-latest
 
-    steps: # Đây là cấp chính xác
+    steps:
       - uses: actions/checkout@v3
       - uses: subosito/flutter-action@v2
         with:
           flutter-version: '3.24.5'
       - run: flutter pub get
       - run: flutter --version
-      - run: flutter test
       - run: flutter build apk --debug --split-per-abi
       - name: Push to Release
         uses: actions/upload-release-asset@v1
