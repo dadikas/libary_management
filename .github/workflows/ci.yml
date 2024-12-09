@@ -28,6 +28,6 @@ jobs:
       - name: Push to Release
         uses: ncipollo/release-action@v1
         with:
-          artifact: "build/app/outputs/apk/debug/*.apk"
+          artifacts: "build/app/outputs/apk/debug/*.apk"
           tag: v0.0.${{ github.run_number }}
           token: ${{ secrets.TOKEN }}

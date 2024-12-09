@@ -37,12 +37,17 @@ dependencies:
   cupertino_icons: ^1.0.6
   #libary
   equatable: ^2.0.0
-  flutter_bloc: ^8.1.6
+  flutter_bloc: 
   smooth_page_indicator: ^1.2.0+3
   shared_preferences: ^2.3.3
   #libary#sentry
   sentry_flutter: ^8.10.1
-  
+  fpdart: 
+  dio: 
+  logger:
+  get_it: 
+  flutter_dotenv: ^5.2.1
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -68,6 +73,7 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/images/
+    - .env
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

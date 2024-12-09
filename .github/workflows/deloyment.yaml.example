@@ -29,3 +29,4 @@ jobs:
               releaseFiles: build/app/outputs/flutter-apk/app-release.apk
               track: internal # Gửi ứng dụng lên track "internal" (có thể thay đổi thành "production" nếu cần)
               inAppUpdatePriority: 3 
+#idon't this success, i wil comback in the future
