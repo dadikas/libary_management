@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:libary_management/src/common/helper/navigation/app_navigation.dart';
 import 'package:libary_management/src/core/widget/components/custom_text.dart';
 import 'package:libary_management/src/core/widget/components/custom_textfield.dart';
 import 'package:libary_management/src/core/widget/utils/text_util.dart';
+import 'package:libary_management/src/features/auth/presentation/pages/signup_page.dart';
 
 class SigninPage extends StatefulWidget {
   const SigninPage({super.key});
@@ -75,7 +77,9 @@ class _SigninPageState extends State<SigninPage> {
               children: [
                 const CustomText(text: 'Don\'t have an account? '),
                 TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      AppNavigator.push(context, const SignupPage());
+                    },
                     child: const CustomText(
                       text: 'Sign Up',
                       fontSize: TextUtil.textSize,
