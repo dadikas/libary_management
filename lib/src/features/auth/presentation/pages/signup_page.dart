@@ -12,6 +12,9 @@ class SignupPage extends StatefulWidget {
 }
 
 class _SignupPageState extends State<SignupPage> {
+  final TextEditingController _nameController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,15 +36,15 @@ class _SignupPageState extends State<SignupPage> {
             padding: EdgeInsets.all(MediaQuery.of(context).size.width * 0.04),
             child: Column(
               children: [
-                const CustomTextfield(title: 'Name', hintText: 'Name'),
+                CustomTextfield(title: 'Name', hintText: 'Name', controller: _nameController),
                 SizedBox(
                   height: MediaQuery.of(context).size.width * 0.04,
                 ),
-                const CustomTextfield(title: 'Email', hintText: 'Email'),
+                CustomTextfield(title: 'Email', hintText: 'Email', controller: _emailController),
                 SizedBox(
                   height: MediaQuery.of(context).size.width * 0.04,
                 ),
-                const CustomTextfield(title: 'Password', hintText: 'Password'),
+                CustomTextfield(title: 'Password', hintText: 'Password', controller: _passwordController),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   //forgot password
@@ -63,7 +66,9 @@ class _SignupPageState extends State<SignupPage> {
                 left: MediaQuery.of(context).size.width * 0.04,
                 right: MediaQuery.of(context).size.width * 0.04),
             child: ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                
+              },
               style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.black,
                   minimumSize: Size(MediaQuery.of(context).size.width, 50)),

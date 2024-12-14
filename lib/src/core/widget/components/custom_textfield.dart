@@ -7,6 +7,7 @@ class CustomTextfield extends StatelessWidget {
   final String hintText;
   final IconData icon;
   final bool isObscureText;
+  final TextEditingController controller;
 
   const CustomTextfield({
     super.key,
@@ -15,6 +16,7 @@ class CustomTextfield extends StatelessWidget {
     required this.hintText,
     this.icon = Icons.email,
     this.isObscureText = false,
+    required this.controller,
   });
 
   @override
@@ -35,7 +37,8 @@ class CustomTextfield extends StatelessWidget {
                 icon,
               ),
             ),
-          ))
+          ),
+          controller: controller,)
         ],
       );
 

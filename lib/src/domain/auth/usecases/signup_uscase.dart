@@ -1,16 +1,16 @@
 import 'package:fpdart/fpdart.dart';
 import 'package:libary_management/service_locator.dart';
 import 'package:libary_management/src/core/usecase/usecase.dart';
-import 'package:libary_management/src/data/auth/models/signin_req_params.dart';
+import 'package:libary_management/src/data/auth/models/signup_req_params.dart';
 import 'package:libary_management/src/domain/auth/repositories/auth_repository.dart';
 
-class SigninUscase extends Usecase<Either, SigninReqParams>{
+class SignupUscase extends Usecase<Either, SignupReqParams>{
   final AuthRepository authRepository;
 
-  SigninUscase({required this.authRepository});
+  SignupUscase({required this.authRepository});
 
   @override
-  Future<Either> call({SigninReqParams? params}) async {
-    return await sl<AuthRepository>().signin(params!);
+  Future<Either> call({SignupReqParams? params}) async {
+    return await sl<AuthRepository>().signup(params!);
   }
 }

@@ -13,6 +13,8 @@ class SigninPage extends StatefulWidget {
 }
 
 class _SigninPageState extends State<SigninPage> {
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,12 +38,12 @@ class _SigninPageState extends State<SigninPage> {
                 padding: EdgeInsets.all(width * 0.04),
                 child: Column(
                   children: [
-                    const CustomTextfield(title: 'Email', hintText: 'Email'),
+                    CustomTextfield(title: 'Email', hintText: 'Email', controller: _emailController),
                     SizedBox(
                       height: width * 0.04,
                     ),
-                    const CustomTextfield(
-                        title: 'Password', hintText: 'Password')
+                    CustomTextfield(
+                        title: 'Password', hintText: 'Password', controller: _passwordController),
                   ],
                 ),
               ),
