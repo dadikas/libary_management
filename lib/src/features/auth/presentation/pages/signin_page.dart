@@ -13,82 +13,91 @@ class SigninPage extends StatefulWidget {
 }
 
 class _SigninPageState extends State<SigninPage> {
-  bool showLogin = false;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          Padding(
-            padding: EdgeInsets.only(
-                left: MediaQuery.of(context).size.width * 0.05,
-                top: MediaQuery.of(context).size.width * 0.2),
-            child: const CustomText(
-              text: 'Welcome \nBack!',
-              fontSize: TextUtil.largeTextSize,
-              isBold: true,
-              maxLines: 2,
-            ),
-          ),
-          Padding(
-            padding: EdgeInsets.all(MediaQuery.of(context).size.width * 0.05),
-            child: Column(
-              children: [
-                const CustomTextfield(title: 'Email', hintText: 'Email'),
-                SizedBox(
-                  height: MediaQuery.of(context).size.width * 0.05,
-                ),
-                const CustomTextfield(title: 'Password', hintText: 'Password')
-              ],
-            ),
-          ),
-          Padding(
-            padding: EdgeInsets.all(MediaQuery.of(context).size.width * 0.05),
-            child: TextButton(
-                onPressed: () {},
-                child: const CustomText(
-                  text: 'Forgot Password?',
-                  fontSize: TextUtil.textSize,
+      body: LayoutBuilder(
+        builder: (context, constraints) {
+          double width = constraints.maxWidth;
+
+          return Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Padding(
+                padding: EdgeInsets.only(left: width * 0.05, top: width * 0.2),
+                child: CustomText(
+                  text: 'Sign In',
+                  fontSize: TextUtil.largeTextSize(context),
                   isBold: true,
-                )),
-          ),
-          Padding(
-            padding: EdgeInsets.all(MediaQuery.of(context).size.width * 0.05),
-            child: ElevatedButton(
-              onPressed: () {},
-              style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.black,
-                  minimumSize: Size(MediaQuery.of(context).size.width, 50)),
-              child: const CustomText(
-                text: 'Sign In',
-                fontSize: TextUtil.textSize,
-                isBold: true,
-                textColor: Colors.white,
+                  maxLines: 2,
+                ),
               ),
-              
-            ),
-          ),
-          Padding(
-            padding: EdgeInsets.all(MediaQuery.of(context).size.width * 0.05),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                const CustomText(text: 'Don\'t have an account? '),
-                TextButton(
-                    onPressed: () {
-                      AppNavigator.push(context, const SignupPage());
-                    },
-                    child: const CustomText(
-                      text: 'Sign Up',
-                      fontSize: TextUtil.textSize,
-                      isBold: true,
-                    ))
-              ],
-            ),
-          )
-        ],
+              Padding(
+                padding: EdgeInsets.all(width * 0.04),
+                child: Column(
+                  children: [
+                    const CustomTextfield(title: 'Email', hintText: 'Email'),
+                    SizedBox(
+                      height: width * 0.04,
+                    ),
+                    const CustomTextfield(
+                        title: 'Password', hintText: 'Password')
+                  ],
+                ),
+              ),
+              TextButton(
+                  onPressed: () {},
+                  child: CustomText(
+                    text: 'Forgot Password?',
+                    fontSize: TextUtil.textSize(context),
+                    isBold: true,
+                  )),
+              Padding(
+                padding: EdgeInsets.all(width * 0.04),
+                child: ElevatedButton(
+                  onPressed: () {},
+                  style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.black,
+                      minimumSize:
+                          Size(width, 50)),
+                  child: CustomText(
+                    text: 'Sign In',
+                    fontSize: TextUtil.textSize(context),
+                    isBold: true,
+                    textColor: Colors.white,
+                  ),
+                ),
+              ),
+              Align(
+                alignment: Alignment.center,
+                child: Wrap(
+                  alignment: WrapAlignment.center,
+                  children: [
+                    const CustomText(
+                      text: 'Don\'t have an account? ',
+                    ),
+                    TextButton(
+                      onPressed: () {
+                        AppNavigator.push(context, const SignupPage());
+                      },
+                      style: TextButton.styleFrom(
+                        padding: EdgeInsets.zero,
+                        minimumSize: const Size(0, 0),
+                        tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                      ),
+                      child: CustomText(
+                        text: 'Sign Up',
+                        fontSize: TextUtil.textSize(context),
+                        isBold: true,
+                        textColor: Theme.of(context).primaryColor,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          );
+        },
       ),
     );
   }

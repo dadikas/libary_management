@@ -6,7 +6,7 @@ class CustomText extends StatelessWidget {
   final bool isBold;
   final bool isItalic;
   final bool isCenter;
-  final double fontSize;
+   final double? fontSize;
   final bool isOverFlow;
   final Color? textColor;
   final bool softWrap;
@@ -19,7 +19,7 @@ class CustomText extends StatelessWidget {
       this.isBold = false,
       this.isItalic = false,
       this.isCenter = false,
-      this.fontSize = TextUtil.textSize,
+      this.fontSize,
       this.isOverFlow = false,
       this.softWrap = true,
       this.textColor,
@@ -34,7 +34,7 @@ class CustomText extends StatelessWidget {
       overflow: isOverFlow ? TextOverflow.visible : null,
       style: TextStyle(
         fontWeight: isBold ? FontWeight.bold : FontWeight.normal,
-        fontSize: fontSize,
+        fontSize: fontSize ?? TextUtil.textSize(context),
         fontStyle: isItalic ? FontStyle.italic : FontStyle.normal,
         color: textColor ?? Theme.of(context).colorScheme.onPrimary,
         fontFamily: TextUtil.fontStyle,

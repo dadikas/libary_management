@@ -22,69 +22,57 @@ class _SignupPageState extends State<SignupPage> {
             padding: EdgeInsets.only(
                 left: MediaQuery.of(context).size.width * 0.05,
                 top: MediaQuery.of(context).size.width * 0.2),
-            child: const CustomText(
-              text: 'Welcome \nTo SWAPBOOK!',
-              fontSize: TextUtil.largeTextSize,
+            child: CustomText(
+              text: 'Sign Up',
+              fontSize: TextUtil.largeTextSize(context),
               isBold: true,
               maxLines: 2,
             ),
           ),
           Padding(
-            padding: EdgeInsets.all(MediaQuery.of(context).size.width * 0.05),
+            padding: EdgeInsets.all(MediaQuery.of(context).size.width * 0.04),
             child: Column(
               children: [
                 const CustomTextfield(title: 'Name', hintText: 'Name'),
                 SizedBox(
-                  height: MediaQuery.of(context).size.width * 0.05,
+                  height: MediaQuery.of(context).size.width * 0.04,
                 ),
                 const CustomTextfield(title: 'Email', hintText: 'Email'),
                 SizedBox(
-                  height: MediaQuery.of(context).size.width * 0.05,
+                  height: MediaQuery.of(context).size.width * 0.04,
                 ),
-                const CustomTextfield(title: 'Password', hintText: 'Password')
+                const CustomTextfield(title: 'Password', hintText: 'Password'),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  //forgot password
+                  children: [
+                    TextButton(
+                        onPressed: () {},
+                        child: CustomText(
+                          text: 'Forgot Password?',
+                          fontSize: TextUtil.textSize(context),
+                          isBold: true,
+                        )),
+                  ],
+                )
               ],
             ),
           ),
           Padding(
-            padding: EdgeInsets.all(MediaQuery.of(context).size.width * 0.05),
-            child: TextButton(
-                onPressed: () {},
-                child: const CustomText(
-                  text: 'Forgot Password?',
-                  fontSize: TextUtil.textSize,
-                  isBold: true,
-                )),
-          ),
-          Padding(
-            padding: EdgeInsets.all(MediaQuery.of(context).size.width * 0.05),
+            padding: EdgeInsets.only(
+                left: MediaQuery.of(context).size.width * 0.04,
+                right: MediaQuery.of(context).size.width * 0.04),
             child: ElevatedButton(
               onPressed: () {},
               style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.black,
                   minimumSize: Size(MediaQuery.of(context).size.width, 50)),
-              child: const CustomText(
-                text: 'Sign In',
-                fontSize: TextUtil.textSize,
+              child: CustomText(
+                text: 'Sign Up',
+                fontSize: TextUtil.textSize(context),
                 isBold: true,
                 textColor: Colors.white,
               ),
-              
-            ),
-          ),
-          Padding(
-            padding: EdgeInsets.all(MediaQuery.of(context).size.width * 0.05),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                const CustomText(text: 'Don\'t have an account? '),
-                TextButton(
-                    onPressed: () {},
-                    child: const CustomText(
-                      text: 'Sign Up',
-                      fontSize: TextUtil.textSize,
-                      isBold: true,
-                    ))
-              ],
             ),
           )
         ],

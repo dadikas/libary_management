@@ -123,4 +123,48 @@ To switch from `HttpApiClient` to `DioApiClient`, simply provide a different imp
 #### **5. Further Reading**
 - **Dependency Injection:** [Flutter Documentation](https://docs.flutter.dev/cookbook/dependency-injection)  
 
+### ***5. Layout**
+## 1. Wrap content with `SingleChildScrollView`
 
+Use `SingleChildScrollView` to enable scrolling when the content exceeds the screen size.
+
+```dart
+SingleChildScrollView(
+  child: Column(
+    children: <Widget>[ /* child widgets */ ],
+  ),
+)
+```
+
+## 2. Adjust widget size with `Flexible`, `Expanded`, `LayoutBuilder`
+
+- **`Flexible`**: Adjust the widget's proportion within `Row`, `Column`, or `Flex`.
+
+```dart
+Flexible(flex: 1, child: Container());
+```
+
+- **`Expanded`**: Automatically takes up the remaining space.
+
+```dart
+Expanded(child: Container());
+```
+
+- **`LayoutBuilder`**: Change the layout based on available space.
+
+```dart
+LayoutBuilder(
+  builder: (context, constraints) => Container(width: constraints.maxWidth),
+);
+```
+
+## 3. Use `FractionallySizedBox` to adjust the size ratio
+
+`FractionallySizedBox` allows resizing the widget based on a percentage of the available space.
+
+```dart
+FractionallySizedBox(
+  widthFactor: 0.5, heightFactor: 0.5,
+  child: Container(),
+);
+```
