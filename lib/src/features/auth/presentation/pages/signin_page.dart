@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:libary_management/service_locator.dart';
 import 'package:libary_management/src/common/helper/navigation/app_navigation.dart';
 import 'package:libary_management/src/core/widget/components/custom_text.dart';
 import 'package:libary_management/src/core/widget/components/custom_textfield.dart';
 import 'package:libary_management/src/core/widget/utils/text_util.dart';
+import 'package:libary_management/src/data/auth/models/signin_req_params.dart';
+import 'package:libary_management/src/domain/auth/usecases/signin_usecase.dart';
 import 'package:libary_management/src/features/auth/presentation/pages/signup_page.dart';
 
 class SigninPage extends StatefulWidget {
@@ -38,17 +41,25 @@ class _SigninPageState extends State<SigninPage> {
                 padding: EdgeInsets.all(width * 0.04),
                 child: Column(
                   children: [
-                    CustomTextfield(title: 'Email', hintText: 'Email', controller: _emailController),
+                    CustomTextfield(
+                        title: 'Email',
+                        hintText: 'Email',
+                        controller: _emailController),
                     SizedBox(
                       height: width * 0.04,
                     ),
                     CustomTextfield(
-                        title: 'Password', hintText: 'Password', controller: _passwordController),
+                        title: 'Password',
+                        hintText: 'Password',
+                        controller: _passwordController),
                   ],
                 ),
               ),
               TextButton(
-                  onPressed: () {},
+                  onPressed: () async => sl<SigninUscase>().call(
+                      params: SigninReqParams(
+                          email: _emailController.text,
+                          password: _passwordController.text)),
                   child: CustomText(
                     text: 'Forgot Password?',
                     fontSize: TextUtil.textSize(context),
@@ -60,8 +71,7 @@ class _SigninPageState extends State<SigninPage> {
                   onPressed: () {},
                   style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.black,
-                      minimumSize:
-                          Size(width, 50)),
+                      minimumSize: Size(width, 50)),
                   child: CustomText(
                     text: 'Sign In',
                     fontSize: TextUtil.textSize(context),

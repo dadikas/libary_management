@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:libary_management/service_locator.dart';
 import 'package:libary_management/src/core/widget/components/custom_text.dart';
 import 'package:libary_management/src/core/widget/components/custom_textfield.dart';
+import 'package:libary_management/src/data/auth/models/signup_req_params.dart';
+import 'package:libary_management/src/domain/auth/usecases/signup_uscase.dart';
 
 import '../../../../core/widget/utils/text_util.dart';
 
@@ -66,9 +69,11 @@ class _SignupPageState extends State<SignupPage> {
                 left: MediaQuery.of(context).size.width * 0.04,
                 right: MediaQuery.of(context).size.width * 0.04),
             child: ElevatedButton(
-              onPressed: () {
-                
-              },
+              onPressed: () async => sl<SignupUsecase>().call(params: SignupReqParams(
+                name: _nameController.text,
+                email: _emailController.text,
+                password: _passwordController.text
+              )),
               style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.black,
                   minimumSize: Size(MediaQuery.of(context).size.width, 50)),
