@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:libary_management/service_locator.dart';
+import 'package:libary_management/src/common/helper/message/display_message.dart';
 import 'package:libary_management/src/common/helper/navigation/app_navigation.dart';
+import 'package:libary_management/src/core/widget/components/custom_button.dart';
 import 'package:libary_management/src/core/widget/components/custom_text.dart';
 import 'package:libary_management/src/core/widget/components/custom_textfield.dart';
 import 'package:libary_management/src/core/widget/utils/text_util.dart';
 import 'package:libary_management/src/data/auth/models/signin_req_params.dart';
 import 'package:libary_management/src/domain/auth/usecases/signin_usecase.dart';
 import 'package:libary_management/src/features/auth/presentation/pages/signup_page.dart';
+import 'package:libary_management/src/features/home/pages/home_page.dart';
 
 class SigninPage extends StatefulWidget {
   const SigninPage({super.key});
@@ -42,16 +45,18 @@ class _SigninPageState extends State<SigninPage> {
                 child: Column(
                   children: [
                     CustomTextfield(
-                        title: 'Email',
                         hintText: 'Email',
                         controller: _emailController),
                     SizedBox(
                       height: width * 0.04,
                     ),
                     CustomTextfield(
-                        title: 'Password',
                         hintText: 'Password',
-                        controller: _passwordController),
+                        controller: _passwordController,
+                        icon: Icons.lock,
+                        type: 'Password',
+                        isObscureText: true,),
+                        
                   ],
                 ),
               ),
@@ -67,17 +72,21 @@ class _SigninPageState extends State<SigninPage> {
                   )),
               Padding(
                 padding: EdgeInsets.all(width * 0.04),
-                child: ElevatedButton(
-                  onPressed: () {},
-                  style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.black,
-                      minimumSize: Size(width, 50)),
-                  child: CustomText(
-                    text: 'Sign In',
-                    fontSize: TextUtil.textSize(context),
-                    isBold: true,
-                    textColor: Colors.white,
-                  ),
+                child: CustomButton(
+                  title: 'Sign In',
+                  width: width,
+                  height: width * 0.15,
+                  onPressed: () async => sl<SigninUscase>().call(
+                      params: SigninReqParams(
+                          email: _emailController.text,
+                          password: _passwordController.text)),
+                  onSuccess: () {
+                    AppNavigator.pushAndRemove(context, const HomePage());
+                  },
+                  onFailure: (error) {
+                    DisplayMessage.showErrorMessage(error, context);
+                  },
+                  
                 ),
               ),
               Align(

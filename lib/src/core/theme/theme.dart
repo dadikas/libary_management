@@ -10,10 +10,10 @@ ThemeData lightGreenMode = ThemeData(
     colorScheme: const ColorScheme.light(
         surface: Colors.white,
         primary: Color.fromRGBO(0, 0, 0, 1),
-        secondary: Color.fromRGBO(79,140,132, 1),
+        secondary: Color.fromRGBO(215, 216, 216, 1),
         onSurface: Colors.white,
-        onPrimary: Colors.black,
-        onSecondary: Color.fromRGBO(161, 226, 222, 1)
+        onPrimary: Color.fromARGB(255, 0, 0, 0),
+        onSecondary: Color.fromRGBO(90, 89, 89, 1)
 
     )
 );

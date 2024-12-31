@@ -39,35 +39,24 @@ class _SignupPageState extends State<SignupPage> {
             padding: EdgeInsets.all(MediaQuery.of(context).size.width * 0.04),
             child: Column(
               children: [
-                CustomTextfield(title: 'Name', hintText: 'Name', controller: _nameController),
+                CustomTextfield( hintText: 'Name', controller: _nameController, icon: Icons.person,),
                 SizedBox(
-                  height: MediaQuery.of(context).size.width * 0.04,
+                  height: MediaQuery.of(context).size.width * 0.08,
                 ),
-                CustomTextfield(title: 'Email', hintText: 'Email', controller: _emailController),
+                CustomTextfield(hintText: 'Email', controller: _emailController),
                 SizedBox(
-                  height: MediaQuery.of(context).size.width * 0.04,
+                  height: MediaQuery.of(context).size.width * 0.08,
                 ),
-                CustomTextfield(title: 'Password', hintText: 'Password', controller: _passwordController),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  //forgot password
-                  children: [
-                    TextButton(
-                        onPressed: () {},
-                        child: CustomText(
-                          text: 'Forgot Password?',
-                          fontSize: TextUtil.textSize(context),
-                          isBold: true,
-                        )),
-                  ],
-                )
+                CustomTextfield( hintText: 'Password', controller: _passwordController, icon: Icons.lock, type: 'Password', isObscureText: true,),
+                
               ],
             ),
           ),
           Padding(
             padding: EdgeInsets.only(
                 left: MediaQuery.of(context).size.width * 0.04,
-                right: MediaQuery.of(context).size.width * 0.04),
+                right: MediaQuery.of(context).size.width * 0.04,  
+                top: MediaQuery.of(context).size.width * 0.1),
             child: ElevatedButton(
               onPressed: () async => sl<SignupUsecase>().call(params: SignupReqParams(
                 name: _nameController.text,
