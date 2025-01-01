@@ -2,7 +2,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:libary_management/src/core/theme/theme.dart';
-import 'package:libary_management/src/features/splash/pages/splash_page.dart';
+import 'package:libary_management/src/presentation/home/pages/home_page.dart';
+// import 'package:libary_management/src/presentation/splash/pages/splash_page.dart';
 
 class LibaryManagementApp extends StatelessWidget{
   const LibaryManagementApp({super.key});
@@ -18,7 +19,7 @@ class LibaryManagementApp extends StatelessWidget{
       debugShowCheckedModeBanner: false,
       title: 'Libary Management',
       theme: AppTheme.lightTheme,
-      home: const SplashPage(),
+      home: const HomePage(),
     );
   }
 }

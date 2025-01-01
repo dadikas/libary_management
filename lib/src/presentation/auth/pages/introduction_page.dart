@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:libary_management/src/core/widget/components/custom_text.dart';
-import 'package:libary_management/src/features/auth/presentation/pages/signin_page.dart';
+import 'package:libary_management/src/presentation/auth/pages/signin_page.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+class IntroductionPage extends StatefulWidget {
+  const IntroductionPage({super.key});
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<IntroductionPage> createState() => _IntroductionPageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _IntroductionPageState extends State<IntroductionPage> {
   final controller = PageController();
   int currentPage = 0;
   final int totalPages = 3;

@@ -8,8 +8,9 @@ import 'package:libary_management/src/core/widget/components/custom_textfield.da
 import 'package:libary_management/src/core/widget/utils/text_util.dart';
 import 'package:libary_management/src/data/auth/models/signin_req_params.dart';
 import 'package:libary_management/src/domain/auth/usecases/signin_usecase.dart';
-import 'package:libary_management/src/features/auth/presentation/pages/signup_page.dart';
-import 'package:libary_management/src/features/home/pages/home_page.dart';
+import 'package:libary_management/src/presentation/auth/pages/forgotpassword_page.dart';
+import 'package:libary_management/src/presentation/auth/pages/signup_page.dart';
+import 'package:libary_management/src/presentation/home/pages/home_page.dart';
 
 class SigninPage extends StatefulWidget {
   const SigninPage({super.key});
@@ -21,6 +22,14 @@ class SigninPage extends StatefulWidget {
 class _SigninPageState extends State<SigninPage> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
+
+  @override
+  void dispose() {
+    _emailController.dispose();
+    _passwordController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -61,10 +70,9 @@ class _SigninPageState extends State<SigninPage> {
                 ),
               ),
               TextButton(
-                  onPressed: () async => sl<SigninUscase>().call(
-                      params: SigninReqParams(
-                          email: _emailController.text,
-                          password: _passwordController.text)),
+                  onPressed: (){
+                    AppNavigator.push(context, const ForgotpasswordPage());
+                  },
                   child: CustomText(
                     text: 'Forgot Password?',
                     fontSize: TextUtil.textSize(context),

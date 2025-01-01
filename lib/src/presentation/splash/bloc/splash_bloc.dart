@@ -1,6 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:libary_management/src/features/splash/bloc/splash_event.dart';
-import 'package:libary_management/src/features/splash/bloc/splash_state.dart';
+import 'package:libary_management/src/presentation/splash/bloc/splash_event.dart';
+import 'package:libary_management/src/presentation/splash/bloc/splash_state.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class SplashBloc extends Bloc<SplashEvent, SplashState> {

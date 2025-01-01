@@ -2,12 +2,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:libary_management/src/common/helper/navigation/app_navigation.dart';
-import 'package:libary_management/src/features/auth/presentation/pages/introduction_page.dart';
-import 'package:libary_management/src/features/auth/presentation/pages/signin_page.dart';
-import 'package:libary_management/src/features/home/pages/home_page.dart';
-import 'package:libary_management/src/features/splash/bloc/splash_bloc.dart';
-import 'package:libary_management/src/features/splash/bloc/splash_event.dart';
-import 'package:libary_management/src/features/splash/bloc/splash_state.dart';
+import 'package:libary_management/src/presentation/auth/pages/introduction_page.dart';
+import 'package:libary_management/src/presentation/auth/pages/signin_page.dart';
+import 'package:libary_management/src/presentation/home/pages/home_page.dart';
+import 'package:libary_management/src/presentation/splash/bloc/splash_bloc.dart';
+import 'package:libary_management/src/presentation/splash/bloc/splash_event.dart';
+import 'package:libary_management/src/presentation/splash/bloc/splash_state.dart';
 
 class SplashPage extends StatelessWidget {
   const SplashPage({super.key});
