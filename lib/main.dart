@@ -5,9 +5,10 @@ import 'package:libary_management/service_locator.dart';
 import 'package:sentry_flutter/sentry_flutter.dart';
 
 Future<void> main() async {
-  WidgetsFlutterBinding.ensureInitialized();
+  
   //.env file is loaded the first time you access a variable
   await dotenv.load(fileName: ".env");
+
   setupServiceLocator();
 
   await SentryFlutter.init(
@@ -16,7 +17,7 @@ Future<void> main() async {
 
       options.tracesSampleRate = 1.0;
       options.profilesSampleRate = 1.0;
-    }, 
+    },
     appRunner: () => runApp(const LibaryManagementApp()),
   );
 

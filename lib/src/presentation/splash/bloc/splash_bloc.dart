@@ -5,10 +5,10 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 class SplashBloc extends Bloc<SplashEvent, SplashState> {
   SplashBloc() : super(DisplaySplash()) {
-    on<SplashStarted>(_onSplashStarted);
+    on<SplashStarted>(onSplashStarted);
   }
 
-  Future<void> _onSplashStarted(
+  Future<void> onSplashStarted(
     SplashStarted event,
     Emitter<SplashState> emit,
   ) async {
